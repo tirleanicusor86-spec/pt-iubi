@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentru Denisa ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --soft-pink: #ffb3c1;
+            --dark-red: #c9184a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(rgba(255, 182, 193, 0.5), rgba(255, 77, 109, 0.5)), 
+                        url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Inimi animate pe fundal */
+        .heart-bg {
+            position: fixed;
+            top: -10%;
+            color: rgba(255, 77, 109, 0.6);
+            font-size: 20px;
+            user-select: none;
+            z-index: 0;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            max-width: 380px;
+            width: 85%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        h1 { font-family: 'Great Vibes', cursive; color: var(--dark-red); font-size: 2.8rem; margin: 10px 0; }
+        h2 { font-family: 'Dancing Script', cursive; color: var(--primary-pink); font-size: 1.8rem; }
+
+        .page { display: none; }
+        .active { display: block; animation: scaleIn 0.6s ease-out; }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .btn {
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        .btn-main { background: var(--primary-pink); color: white; width: 80%; }
+        .btn-main:hover { background: var(--dark-red); transform: scale(1.05); }
+
+        .envelope {
+            font-size: 80px;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.5s;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+        .envelope:hover { transform: rotate(-5deg) scale(1.1); }
+
+        .photo-frame {
+            width: 100%;
+            height: 220px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .love-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .music-controls {
+            margin-top: 20px;
+            background: rgba(255, 77, 109, 0.1);
+            padding: 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="heart-container"></div>
+
+<div class="container">
+    <div id="p1" class="page active">
+        <h2>Bună, iubirică... ✨</h2>
+        <p>Ai primit un mesaj special.</p>
+        <div class="envelope" onclick="showPage('p2')">✉️</div>
+        <p style="color: var(--primary-pink); font-weight: 500;">Apasă plicul</p>
+    </div>
+
+    <div id="p2" class="page">
+        <h2>Această scrisoare este pentru tine.</h2>
+        <p>Ești pregătită să o citești?</p>
+        <button class="btn btn-main" onclick="showPage('p3')">Sunt pregătită ❤️</button>
+    </div>
+
+    <div id="p3" class="page">
+        <h1>Dragobetele nostru</h1>
+        <div class="photo-frame">
+            <img src="poza.jpg" alt="Noi">
+        </div>
+        <p class="love-text">
+            Ești singura persoană căreia îi dau dreptate chiar și când n-are... uneori.
+            Suntem noi, și asta e suficient. Nu e nevoie de sărbători mari ca să-ți mulțumesc că ești aici,
+            dar dacă tot e Dragobetele... m-am gândit să-ți reamintesc că ești specială pentru mine.
+        </p>
+        <p>Pentru că nu putem petrece ziua de azi împreună, promit să mă revanșez în weekend. Te iubesc</p>
+        <button class="btn btn-main" onclick="showPage('p4')">Vezi surpriza muzicală 🎵</button>
+        <p style="font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: var(--dark-red);">Cu drag, iubi tău</p>
+    </div>
+
+    <div id="p4" class="page">
+        <h2>Pentru inima ta...</h2>
+        <div style="font-size: 50px;">📻</div>
+        <div class="music-controls">
+            <audio id="loveSong" controls style="width: 100%;">
+                <source src="melodie.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <button class="btn" onclick="showPage('p3')" style="background:none; border: 1px solid var(--soft-pink); color: var(--dark-red);">Înapoi la scrisoare</button>
+    </div>
+</div>
+
+<script>
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if(id === 'p4') {
+            document.getElementById('loveSong').play();
+        }
+    }
+
+    // Generăm inimi care cad
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart-bg');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        heart.style.opacity = Math.random();
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        
+        document.getElementById('heart-container').appendChild(heart);
+        
+        setTimeout(() => { heart.remove(); }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
